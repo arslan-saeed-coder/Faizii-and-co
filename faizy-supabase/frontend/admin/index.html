@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>FAIZY &amp; CO — Admin</title>
+<link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="admin.css">
+</head><body>
+<div class="w" style="padding-top:18px;padding-bottom:40px">
+<div class="top"><div class="logo"><span class="crown">👑</span> FAIZY &amp; CO<small>ADMIN PANEL</small></div><button class="btn o hide" id="out">LOG OUT</button></div>
+
+<form id="login" class="panel box"><h2>Admin login</h2><label>Email</label><input type="email" id="em" autocomplete="username"><label>Password</label><input type="password" id="pw" autocomplete="current-password"><div class="err" id="lerr"></div><button class="wa" style="background:#fff">LOG IN</button></form>
+
+<div id="main" class="hide">
+<div class="tabs"><button class="f on" data-t="products">Products</button><button class="f" data-t="orders">Orders <span id="pend"></span></button></div>
+
+<section id="t-products">
+<div class="bar"><button class="btn" id="add">+ ADD PRODUCT</button><span class="cat-l">Change price, stock and visibility directly in the table. Changes save automatically.</span></div>
+<form id="pf" class="panel box hide">
+<h3 id="pft">Add product</h3>
+<div class="g2"><div><label>Name *</label><input name="name"></div><div><label>Category *</label><select name="category"><option value="tshirts">T-Shirts</option><option value="watches">Watches</option><option value="lockets">Lockets &amp; Chains</option><option value="combos">Combos</option></select></div></div>
+<label>Description</label><textarea name="description" rows="2"></textarea>
+<div class="g3"><div><label>Price (PKR) *</label><input name="price" type="number" min="0"></div><div><label>Stock *</label><input name="stock" type="number" min="0"></div><div><label>Sizes (comma separated, blank if none)</label><input name="sizes" placeholder="S, M, L, XL"></div></div>
+<div class="g3"><div><label>Placeholder drawing (if no photo)</label><select name="art"><option>tee</option><option>watch</option><option>locket</option><option>chain</option><option>combo</option></select></div><div><label>Placeholder colour</label><input name="color" type="color" value="#15181d" style="height:44px;padding:3px"></div><div><label>&nbsp;</label><label class="chk"><input type="checkbox" name="featured"> Featured / Best Seller</label><label class="chk"><input type="checkbox" name="active" checked> Visible on store</label></div></div>
+<label>Photos — one URL per line, or upload (JPG/PNG/WEBP, max 3 MB)</label><textarea name="images" rows="3" placeholder="https://..."></textarea>
+<input type="file" id="up" accept="image/jpeg,image/png,image/webp" multiple>
+<div class="err" id="perr"></div>
+<div class="bar"><button class="btn">SAVE PRODUCT</button><button class="btn o" type="button" id="cancel">CANCEL</button></div>
+</form>
+<div class="tw"><table><thead><tr><th></th><th>Product</th><th>Price</th><th>Stock</th><th>Visible</th><th>Featured</th><th></th></tr></thead><tbody id="ptb"></tbody></table></div>
+</section>
+
+<section id="t-orders" class="hide">
+<div class="filters" id="of"></div>
+<div id="ol"></div>
+</section>
+</div></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3/dist/umd/supabase.js"></script>
+<script src="../js/supabase-config.js"></script>
+<script src="admin.js"></script></body></html>
